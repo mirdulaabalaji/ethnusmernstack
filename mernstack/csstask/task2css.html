@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <title>Navigation Bar</title>
+    <style>
+        h1{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        .vert {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #f1f1f1;
+        border:1px solid black;
+        }
+
+        li a {
+        display: block;
+        padding: 8px 16px;
+        background-color:rgb(158, 231, 232);
+        color:blue;
+        text-decoration: none;
+        }
+        li a.active {
+        background-color: #f7ad2f;
+        color: white;
+        }
+
+        li a:hover {
+        background-color: #fa5858;
+        }
+        .ver{
+        width:150px;
+        margin-left: 20px;;
+        }
+        .hori {
+                    display: flex;
+                
+                }
+
+                .hori li {
+                    display: inline;
+                    flex-wrap: wrap;
+                    border:rgb(57, 57, 194) 1px solid;
+            
+                }
+
+                .hori li a {
+                    display: inline;
+                    
+                }
+
+                
+        .hor-heading a.active {
+        background-color: #808a87;
+        color: white;
+        }
+        .hor-item a{
+        background-color: rgb(190, 198, 205);
+        }
+            .hor{
+            width:500px;
+            float:right;
+            border:1px solid black;
+            }
+    </style>
+  </head>
+  <body>
+    <h1>TASK 2</h1>
+    <div class="main">
+    <div class="ver">    
+      <ul class="vert">
+        <li><a class="active" href="#home">Home</a></li>
+        <li class="vert-item"><a href="#Java">Java</a></li>
+        <li class="vert-item"><a href="#CSS">CSS</a></li>
+        <li class="vert-item"><a href="#HTML">HTML</a></li>
+        <li class="vert-item"><a href="#Bootstrap">Bootstrap</a></li>
+  </ul>
+    </nav>
+    </div>
+    <div class="hor">    
+      <ul class="hori">
+        <li class="hor-heading"><a class="active" href="#home">Home</a></li>
+        <li class="hor-item"><a href="#Java">Java</a></li>
+        
+        <li class="hor-item"><a  href="#HTML">HTML</a></li>
+        <li class="hor-item"><a href="#CSS">CSS</a></li>
+        <li class="hor-item"><a href="Bootstrap">Bootstrap</a></li>
+  </ul>
+    </nav>
+    </div>
+  </div>
+  </body>
+</html>

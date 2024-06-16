@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TASK 5</title>
+    <style>
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: yellow;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      .sidebar {
+        width: 200px; /* Width of the sidebar */
+        padding: 20px;
+      }
+      .sidebar div {
+        padding: 10px;
+      }
+      .sidebar div a {
+        text-decoration: none;
+        color: blue;
+        width: 20px;
+        height: 5px;
+      }
+      .content {
+        flex: 1; /* Take remaining space */
+        padding: 20px;
+        color: purple;
+        font-family: Arial, sans-serif;
+        background-color: yellow;
+      }
+      .content h1 {
+        margin-top: 0;
+      }
+      .content p {
+        line-height: 1.6;
+      }
+      #home {
+        color: purple;
+      }
+      .item {
+        border: 1px solid black;
+        padding-bottom: 5px;
+        margin-bottom: 10px; 
+        background: linear-gradient(to right, white 85%, black 15%);
+
+      }
+      .item::before{
+        width:85%;
+        background-color:black;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="item" style="margin-top: 20px;">
+          <a href="home" id="home">Home page</a>
+        </div>
+
+        <div class="item">
+          <a href="">Musings</a>
+        </div>
+        <div class="item">
+          <a href="#">My Town</a>
+        </div>
+        <div class="item">
+          <a href="#">Links</a>
+        </div>
+      </div>
+      <div class="content">
+        <h1>TASK 5</h1>
+        <h1>My first styled page</h1>
+        <p>
+          Welcome to my styled page!
+          <br /><br />
+          It lacks images, but at least it has style. And it has links, even if
+          they don't go anywhere...
+          <br /><br />
+          There should be more here, but I don't know what yet.
+        </p>
+        <hr />
+        <p>
+          Made 5 April 2004
+          <br />
+          by myself.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

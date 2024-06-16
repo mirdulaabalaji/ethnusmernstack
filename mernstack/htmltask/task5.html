@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        h1{
+            margin-left: 350px;
+        }
+        #declare {
+            text-align: left;
+        }
+        body {
+            margin-left: 300px;
+        }
+        table {
+            margin-left: 150px;
+        }
+        #reg {
+            margin-top: 10px;
+            margin-left: 370px;
+            text-align: center;
+        }
+        h2 {
+            margin-left: 300px;
+            color: blue;
+        }
+        #ethnus {
+            text-align: right;
+        }
+        .cen {
+            text-align: center;
+            font-weight: bold;
+        }
+        .gen {
+            line-height: 0%;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>TASK 5</h1>
+    <h2 id="heading">Registration form</h2>
+        <div class="reg">
+        <table border="1">
+            <tr>
+            <td class="cen">First Name</td>
+            <td><input type="text" name="firstName" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Last Name</td>
+            <td><input type="text" name="lastName" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Email</td>
+            <td><input type="email" name="email" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Password</td>
+            <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Re-enter Password</td>
+            <td><input type="password" name="rePassword" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Gender</td>
+            <td class="gen">
+                <input type="radio" name="gender" value="Male" />Male
+                <hr />
+                <input type="radio" name="gender" value="Female" />Female
+            </td>
+            </tr>
+            <tr>
+            <td class="cen">Age</td>
+            <td><input type="number" name="age" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Phone number</td>
+            <td><input type="tel" name="phone" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Address</td>
+            <td><textarea name="addr" rows="6" cols="45"></textarea></td>
+            </tr>
+            <tr>
+            <td class="cen">State</td>
+            <td><input type="text" name="state" /></td>
+            </tr>
+            <tr>
+            <td class="cen">Country</td>
+            <td>
+                <select name="country">
+                <option value="">Choose your country</option>
+                <option value="India">India</option>
+                <option value="US">US</option>
+                </select>
+            </td>
+            </tr>
+            <tr>
+            <td class="cen">Languages known</td>
+            <td>
+                <input type="checkbox" name="languages" value="English" />English
+                <input type="checkbox" name="languages" value="Kannada" />Kannada
+                <input type="checkbox" name="languages" value="Hindi" />Hindi
+                <input type="checkbox" name="languages" value="Telugu" />Telugu
+            </td>
+            </tr>
+            <tr>
+            <td colspan="2" id="declare">
+                <input type="checkbox" name="declare" />Hereby, I declare all the
+                given details are true
+            </td>
+            </tr>
+            <tr id="ethnus">
+            <td colspan="2">
+                Log in to
+                <a href="https://ethnus.com">Ethnus </a>website
+            </td>
+            </tr>
+        </table>
+        <input id="reg" type="button" value="Register" />
+        </div>
+  </body>
+</html>
