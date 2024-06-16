@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS-TASK:7</title>
+    <style>
+      h1,body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: #963654;
+        padding: 120px;
+        
+      }
+      .details {
+        line-height: 2.5;
+        background-color: #6b273d;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        
+      }
+      #reg {
+        height: 30px;
+        width: 300px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1>TASK 7</h1>
+      <div class="details">
+        Name:
+        <input type="text" placeholder="your name" /><br />
+        Email:
+        <input type="email" placeholder="your email" /><br />
+        Password:
+        <input type="password" /><br />
+        Phone Number:
+        <input type="tel" /><br />
+        Gender: Male:
+        <input type="radio" name="gender" value="Male" />
+        Female:
+        <input type="radio" name="gender" value="Female" />
+        Other:<input type="radio" name="gender" /><br />
+        Language:
+        <select name="lang">
+          <option value="">Select language</option>
+          <option value="Hindi">Hindi</option>
+          <option value="Tamil">Tamil</option>
+          <option value="English">English</option></select
+        ><br />
+        Zip Code:
+        <input type="number" /><br />
+        About:
+        <input
+          type="text"
+          rows="3"
+          cols="20"
+          placeholder="Write about yourself..."
+        /><br />
+        <input id="reg" type="button" value="Register" />
+      </div>
+    </div>
+  </body>
+</html>
