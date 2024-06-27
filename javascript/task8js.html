@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+        body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100%;
+        }
+        .error {
+            color: red;
+        }
+        #container{
+            width: 1100px;
+            height:1000px;
+            background:linear-gradient(to bottom,rgba(236,222,201,255),#c87ab8);
+        }
+        #container button{
+            background-color: red;
+            font-size: 13px;
+            padding: 5px;
+            padding-left: 9px;
+            padding-right: 9px;
+            border-radius: 12px;
+        }
+        #container h1{
+            color: blue;
+            padding-left: 70px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <h1>
+        Registration form
+    </h1>
+    <form onsubmit="return validate(event)">
+        <div align="center">
+            <table   width="50%">
+                <tr>
+                    <td width="50%" align="right" padding-right="30px">
+                        <b>First Name</b>
+                    </td>
+                    <td>
+                        <input type="text" name="firstName" size="45" oninput="validateFirstName()" />
+                    </td>
+                    <td><span id="nameerror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Last Name</b>
+                    </td>
+                    <td>
+                        <input type="text" name="lastName" size="45" oninput="validateLastName()" />
+                    </td>
+                    <td><span id="lastnameerror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Email</b>
+                    </td>
+                    <td>
+                        <input type="email" name="email" size="45" oninput="validateEmailField()" />
+                    </td>
+                    <td><span id="mailerror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Password</b>
+                    </td>
+                    <td>
+                        <input type="password" name="password" size="45" oninput="validatePassword()" />
+                    </td>
+                    <td><span id="passworderror" class="error">POOR</span></td>
+                </tr>
+
+                <tr>
+                    <td align="right">
+                        <b>Re-enter Password</b>
+                    </td>
+                    <td>
+                        <input type="password" name="rePassword" size="45" oninput="validateRePassword()" />
+                    </td>
+                    <td><span id="repassworderror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Gender</b>
+                    </td>
+                    <td>
+                        <input type="radio" name="gender" value="Male" onclick="validateGender()" /> Male <br />
+                        <input type="radio" name="gender" value="Female" onclick="validateGender()" /> Female
+                    </td>
+                    <td><span id="gendererror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Age</b>
+                    </td>
+                    <td><input type="text" name="age" size="45" oninput="validateAge()" /></td>
+                    <td><span id="ageerror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Phone number</b>
+                    </td>
+                    <td><input type="tel" name="phone" size="45" oninput="validatePhoneNumber()" /></td>
+                    <td><span id="phoneerror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Address</b>
+                    </td>
+                    <td><textarea name="addr" rows="4" cols="45" oninput="validateAddress()"></textarea></td>
+                    <td><span id="addresserror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>State</b>
+                    </td>
+                    <td><input type="text" name="state" size="45" oninput="validateState()" /></td>
+                    <td><span id="stateerror" class="error">POOR</span></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Country</b>
+                    </td>
+                    <td>
+                        <select name="country" required onchange="validateCountry()">
+                            <option value="">Choose your country</option>
+                            <option value="India">India</option>
+                            <option value="US">US</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <b>Languages known</b>
+                    </td>
+                    <td>
+                        <center>
+                            <input type="checkbox" name="languages" value="English" onclick="validateLanguages()" /> English
+                            <input type="checkbox" name="languages" value="Kannada" onclick="validateLanguages()" /> Kannada
+                            <input type="checkbox" name="languages" value="Hindi" onclick="validateLanguages()" /> Hindi
+                            <input type="checkbox" name="languages" value="Telugu" onclick="validateLanguages()" /> Telugu
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="checkbox" name="declare" onclick="validateDeclaration()" /> Hereby, I declare all the
+                        given details are true
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="right">
+                        Log in to <a href="https://ethnus.com">Ethnus</a> website
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <center><button type="submit" onclick="submit()">REGISTER</button></center>
+        </div>
+    </div>
+    </form>
+
+    <script>
+         let isValid = true;
+        function validate(event) {
+           
+            
+
+            if (!validateFirstName()) isValid = false;
+            if (!validateLastName()) isValid = false;
+            if (!validateEmailField()) isValid = false;
+            if (!validatePassword()) isValid = false;
+            if (!validateRePassword()) isValid = false;
+            if (!validateGender()) isValid = false;
+            if (!validateAge()) isValid = false;
+            if (!validatePhoneNumber()) isValid = false;
+            if (!validateAddress()) isValid = false;
+            if (!validateState()) isValid = false;
+            if (!validateCountry()) isValid = false;
+            if (!validateLanguages()) isValid = false;
+            if (!validateDeclaration()) isValid = false;
+           
+
+            return isValid;
+        }
+        function submit(){
+            if(isValid=true){
+                alert("form submitted")
+            }
+        }
+
+        function validateFirstName() {
+            let firstName = document.forms[0]["firstName"].value;
+            if (firstName.length < 3) {
+                document.getElementById("nameerror").innerHTML = "First Name should be at least 3 characters long";
+                return false;
+            } else {
+                document.getElementById("nameerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateLastName() {
+            let lastName = document.forms[0]["lastName"].value;
+            if (lastName.length < 3) {
+                document.getElementById("lastnameerror").innerHTML = "Last Name should be at least 3 characters long";
+                return false;
+            } else {
+                document.getElementById("lastnameerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateEmailField() {
+            let email = document.forms[0]["email"].value;
+            if (!validateEmail(email)) {
+                document.getElementById("mailerror").innerHTML = "Enter a valid email address";
+                return false;
+            } else {
+                document.getElementById("mailerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validatePassword() {
+            let password = document.forms[0]["password"].value;
+            if (password.length < 6) {
+                document.getElementById("passworderror").innerHTML = "Password should be at least 6 characters long";
+                return false;
+            } else {
+                document.getElementById("passworderror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateRePassword() {
+            let password = document.forms[0]["password"].value;
+            let rePassword = document.forms[0]["rePassword"].value;
+            if (rePassword !== password) {
+                document.getElementById("repassworderror").innerHTML = "Passwords do not match";
+                return false;
+            } else {
+                document.getElementById("repassworderror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateGender() {
+            let gender = document.forms[0]["gender"].value;
+            if (!gender) {
+                document.getElementById("gendererror").innerHTML = "Please select your gender";
+                return false;
+            } else {
+                document.getElementById("gendererror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateAge() {
+            let age = document.forms[0]["age"].value;
+            if (age < 18 || age > 100) {
+                document.getElementById("ageerror").innerHTML = "Age should be between 18 and 100";
+                return false;
+            } else {
+                document.getElementById("ageerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validatePhoneNumber() {
+            let phone = document.forms[0]["phone"].value;
+            if (!validatePhone(phone)) {
+                document.getElementById("phoneerror").innerHTML = "Enter a valid 10-digit phone number";
+                return false;
+            } else {
+                document.getElementById("phoneerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateAddress() {
+            let address = document.forms[0]["addr"].value;
+            if (address.length < 10) {
+                document.getElementById("addresserror").innerHTML = "Address should be at least 10 characters long";
+                return false;
+            } else {
+                document.getElementById("addresserror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateState() {
+            let state = document.forms[0]["state"].value;
+            if (state.length < 2) {
+                document.getElementById("stateerror").innerHTML = "State should be at least 2 characters long";
+                return false;
+            } else {
+                document.getElementById("stateerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateCountry() {
+            let country = document.forms[0]["country"].value;
+            if (country === "") {
+                document.getElementById("countryerror").innerHTML = "Please select your country";
+                return false;
+            } else {
+                document.getElementById("countryerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateLanguages() {
+            let languages = document.forms[0]["languages"];
+            let isLanguageSelected = false;
+            for (let i = 0; i < languages.length; i++) {
+                if (languages[i].checked) {
+                    isLanguageSelected = true;
+                    break;
+                }
+            }
+            if (!isLanguageSelected) {
+                document.getElementById("languageerror").innerHTML = "Please select at least one language";
+                return false;
+            } else {
+                document.getElementById("languageerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateDeclaration() {
+            let declare = document.forms[0]["declare"].checked;
+            if (!declare) {
+                document.getElementById("declareerror").innerHTML = "You must declare that the given details are true";
+                return false;
+            } else {
+                document.getElementById("declareerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateEmail(email) {
+            let re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            let re = /^[0-9]{10}$/;
+            return re.test(phone);
+        }
+    </script>
+</body>
+</html>

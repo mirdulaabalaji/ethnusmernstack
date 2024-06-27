@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 1</title>
+    <style>
+        body{
+            background-color: rgb(120, 197, 159);
+        }
+        p{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-size: larger;
+        }
+        h1{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>TASK 2</h1><br><br><br>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+        function alstr(str){
+            let a = str.split('').sort().join('');
+            return a;
+        }
+        let str = "webmaster";
+        let sor = alstr(str);
+        document.getElementById('demo').textContent=`Original String: ${str}`;
+        document.getElementById('demo1').textContent=`Alphabetically Sorted String: ${sor}`;
+    </script>
+</body>
+</html>

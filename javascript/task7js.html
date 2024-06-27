@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 7</title>
+    <style>
+        h1{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #movimg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TASK 7</h1><br><br>
+    <div class="container">
+        <img id="movimg" src="train.png">
+    </div>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    <script>
+        const image = document.getElementById('movimg');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+
+        let animationId;
+        let position = 0;
+        let moving = false;
+
+        function moveImage() {
+            if (position > window.innerWidth - image.width) {
+                position = 0;
+            } else {
+                position += 6;
+            }
+            image.style.left = position + 'px';
+            animationId = requestAnimationFrame(moveImage);
+        }
+
+        startButton.addEventListener('click', () => {
+            if (!moving) {
+                moving = true;
+                moveImage();
+            }
+        });
+
+        stopButton.addEventListener('click', () => {
+            if (moving) {
+                moving = false;
+                cancelAnimationFrame(animationId);
+            }
+        });
+    </script>
+</body>
+</html>

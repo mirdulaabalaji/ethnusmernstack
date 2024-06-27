@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 5</title>
+    <style>
+        h1{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        .error {
+            color: red;
+        }
+        .error input, .error textarea {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>
+            TASK 5
+        </h1><br><br><br>
+        <form onsubmit="return validate(event)">
+            <div align="center">
+                <table width="50%">
+                    <tr>
+                        <td align="right">
+                            <b>Name:</b>
+                        </td>
+                        <td>
+                            <input type="text" name="firstName" size="20" oninput="validateName()" />
+                        </td>
+                        <td><span id="nameerror" class="error">This field is required</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Email:</b>
+                        </td>
+                        <td>
+                            <input type="email" name="email" size="20" oninput="validateEmailField()" />
+                        </td>
+                        <td><span id="mailerror" class="error">A valid email address is required</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Website:</b>
+                        </td>
+                        <td>
+                            <input type="text" name="website" size="20" oninput="validateURL()" />
+                        </td>
+                        <td><span id="websiteerror" class="error">A valid URL is required</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>                    
+                    <tr>
+                        <td align="right">
+                            <b>Message:</b>
+                        </td>
+                        <td><textarea name="message" rows="4" cols="35" oninput="validateMessage()"></textarea></td>
+                        <td><span id="messageerror" class="error">This field is required</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="submit"  onclick="submit()">Submit</button></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <br />
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        let isValid = true;
+
+        function validate(event) {
+            isValid = true; 
+
+            if (!validateName()) isValid = false;
+            if (!validateEmailField()) isValid = false;
+            if (!validateURL()) isValid = false;
+            if (!validateMessage()) isValid = false;
+
+            return isValid;
+        }
+        function submit(){
+            if(isValid=true){
+                alert("form submitted")
+            }
+        }
+
+        function validateName() {
+            let firstName = document.forms[0]["firstName"].value;
+            if (firstName.length < 3) {
+                document.getElementById("nameerror").innerHTML = "";
+                return false;
+            } else {
+                document.getElementById("nameerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateEmailField() {
+            let email = document.forms[0]["email"].value;
+            if (!validateEmail(email)) {
+                document.getElementById("mailerror").innerHTML = "A valid email address is required";
+                return false;
+            } else {
+                document.getElementById("mailerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateURL() {
+            let website = document.forms[0]["website"].value;
+            const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+            if (!urlPattern.test(website)) {
+                document.getElementById("websiteerror").innerHTML = "A valid URL is required";
+                return false;
+            } else {
+                document.getElementById("websiteerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateMessage() {
+            let message = document.forms[0]["message"].value;
+            if (message.trim().length < 10) {
+                document.getElementById("messageerror").innerHTML = "";
+                return false;
+            } else {
+                document.getElementById("messageerror").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateEmail(email) {
+            let re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>

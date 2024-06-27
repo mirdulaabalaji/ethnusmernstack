@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK 1</title>
+    <style>
+      body {
+        background-color: rgb(120, 120, 197);
+      }
+      p {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        font-size: large;
+      }
+      h1 {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TASK 1</h1>
+    <br /><br /><br />
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+      function revnum(num) {
+        let x = num.toString().split("").reverse().join("");
+        let a = parseInt(x);
+        return a;
+      }
+      let num = 348752;
+      let rnum = revnum(num);
+      document.getElementById("demo").textContent = `Number: ${num}`;
+      document.getElementById("demo1").textContent = `Reversed Number: ${rnum}`;
+    </script>
+  </body>
+</html>

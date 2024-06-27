@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 4</title>
+    <style>
+        h1{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        .demo{
+            padding-left: 300px;
+            padding-top: 50px;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <h1>TASK 4</h1><br><br>
+    <script>
+        function date(){
+            var tod= new Date();
+            var date= tod.getDate() + '/'+ tod.toLocaleString('default',{month:'long'})+ '/'+
+                                    tod.getFullYear();
+            document.getElementById('date').innerHTML=date;
+        }
+
+        function time(){
+            var tod= new Date();
+            var time= tod.toString();
+            document.getElementById('time').innerHTML=time;
+            
+        }
+    </script>
+
+    <div class="demo">
+        <button onclick="date()">Show Date</button><br><br>
+        <p id="date"></p><br><br>
+        <button onclick="time()">Show Time</button><br><br>
+        <p id="time"></p><br><br>
+    </div>
+</body>
+</html>
